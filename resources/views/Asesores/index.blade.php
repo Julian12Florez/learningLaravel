@@ -5,7 +5,7 @@
 <div class="card">
         <div class="card-header">
           Registrar Asesor
-        <a href="{{ url('/') }}" style="margin-left: 750px;" class="btn btn-info">Nuevo Asesor</a>
+        <a href="{{ url('createA/create') }}" style="margin-left: 750px;" class="btn btn-info">Nuevo Asesor</a>
         </div>
         <div class="card-body" width:"50%">
                 <table class="table">
