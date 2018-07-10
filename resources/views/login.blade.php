@@ -21,16 +21,16 @@
                                 <h3 class="mb-0">Iniciar Sesion</h3>
                             </div>
                             <div class="card-body">
-                                <form action="/login" class="form" role="form" method="POST">
+                                <form action="login" class="form" role="form" method="POST">
                                     @csrf
                                     <div class="form-group">
                                         <label for="email">email</label>
-                                        <input type="email" class="form-control form-control-lg rounded-0" name="email" id="email" required="">
+                                        <input type="email" class="form-control form-control-lg rounded-0" name="email" id="email" >
                                         <div class="invalid-feedback">El campo de usuario no debe estar vacío</div>
                                     </div>
                                     <div class="form-group">
                                         <label>Contraseña</label>
-                                        <input type="password" class="form-control form-control-lg rounded-0" id="password" name="password" required="" autocomplete="new-password">
+                                        <input type="password" class="form-control form-control-lg rounded-0" id="password" name="password" >
                                         <div class="invalid-feedback">Ingrese la Contraseña</div>
                                     </div>
                                     <button type="submit" class="btn  btn-outline-info btn-xs float-right" id="btnLogin">Iniciar</button>
@@ -39,20 +39,14 @@
                             <!--/card-block-->
                         </div>
                         <!-- /form card login -->
-
                     </div>
-
-
                 </div>
                 <!--/row-->
-
             </div>
             <!--/col-->
         </div>
         <!--/row-->
     </div>
-
-
     @include('sweetalert::cdn')
     @include('sweetalert::view')
     <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>

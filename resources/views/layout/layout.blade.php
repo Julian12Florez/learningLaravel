@@ -27,6 +27,11 @@
         <div class=" navbar-brand text-light">
           Julián
         </div>
+        <form action="{{url('logout')}}" method="POST">
+            @csrf
+        <input type="submit" class="btn btn-outline-light" value="Cerrar sesion">
+        </form>
+        {{-- <a href="{{ url('logout') }}" class="btn btn-outline-light">Cerrar sesion</a> --}}
       </nav>
       <div class="container" style="margin-top:20px">
       @yield('content')

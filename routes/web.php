@@ -13,7 +13,7 @@
 // Route::get('test', function () {
 //     $usuario=new App\Models\Users;
 //     $usuario->nombre='Julian';
-//     $usuario->email='andres@gmail.com';
+//     $usuario->email='tabares@gmail.com';
 //     $usuario->password = bcrypt('123');
 //     $usuario->rol='admin';
 //     $usuario->save();
@@ -21,11 +21,13 @@
 // });
 Route::get('options', function () {
     return view('Asesores.create');
-});
+})->middleware('auth');
 // Route::get('/', function () {
 //     return view('login');
 // });
+// Route::get('/','Asesores.create');
 Route::get('/', 'Auth\LoginController@showLoginForm');
+Route::post('logout', 'Auth\LoginController@logout');
 Route::post('login', 'Auth\LoginController@login');
 // Route::post('login', 'Auth\LoginController@login');
 

@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-// use App\Http\Request;
 use Illuminate\Http\Request;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -20,14 +20,14 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    // use AuthenticatesUsers;
 
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    // protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -36,7 +36,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest')->only('showLoginForm');
     }
 
     public function showLoginForm(){
@@ -45,25 +45,24 @@ class LoginController extends Controller
 
 
 
-    public function login(Request $request)
+    public function login()
         {
-            // var_dump($request);
-            return $request->all();
-            // $credentials = $this->validate(request(), [
-            // 'email' => 'required|email|string',
-            // 'password' => 'required|string'
-            // ]);
+            // return "INGRESO AL LOGIN";
+            $credentials = $this->validate(request(), [
+            'email' => 'required|email|string',
+            'password' => 'required|string'
+            ]);
 
-            // if (Auth::attempt($credentials)) {
-
-            //     return redirect('options');
-            // }else{
-            //     return redirect('/');
-            // }
+            if (Auth::attempt($credentials)) {
+                return redirect('options');
+            }else{
+                return redirect('/');
+            }
         }
 
         public function logout()
         {
+            // return "hola";
             Auth::logout();
             return redirect('/');
         }
