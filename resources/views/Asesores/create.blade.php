@@ -18,10 +18,8 @@
                 </div>
               <div class="form-group col-lg-4">
                     <label for="name">Nombre</label>
-                 <div>
                  <input id="nombre" name="nombre" type="text" placeholder="Nombre" value="{{ old('nombre') }}" class="form-control {{ $errors->has('nombre') ? 'is-invalid' : '' }}">
                  <strong class="invalid-feedback">{{ $errors->first('nombre') }}</strong>
-                </div>
             </div>
             </div>
             <div class="card-footer text-muted">
