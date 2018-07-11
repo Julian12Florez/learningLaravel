@@ -16,6 +16,11 @@
                     <div class="col-md-6 mx-auto">
 
                         <!-- form card login -->
+                    @if (session()->has('sessionMessage'))
+                    <div class="alert alert-danger" role="alert">
+                        <strong>{{ session('sessionMessage') }}</strong>
+                    </div>
+                    @endif
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="mb-0">Iniciar Sesion</h3>
@@ -25,7 +30,7 @@
                                     @csrf
                                     <div class="form-group">
                                         <label for="email">email</label>
-                                        <input type="email" class="form-control form-control-lg rounded-0  {{ $errors->has('email') ? 'is-invalid' : '' }}" name="email" id="email" >
+                                    <input type="email" class="form-control form-control-lg rounded-0  {{ $errors->has('email') ? 'is-invalid' : '' }}" name="email" id="email" value="{{ old('email') }}" >
                                         <strong class="invalid-feedback">{{ $errors->first('email') }}</strong>
                                     </div>
                                     <div class="form-group">
@@ -33,7 +38,6 @@
                                         <input type="password" class="form-control form-control-lg rounded-0  {{ $errors->has('password') ? 'is-invalid' : ''}}" name="password"  id="password" >
                                         <strong class="invalid-feedback">{{ $errors->first('password') }}</strong>
                                     </div>
-                                    <input type="button" onclick="hola()" value="alerta">
                                     <button type="submit" class="btn  btn-outline-info btn-xs float-right" id="btnLogin">Iniciar</button>
                                 </form>
                             </div>
@@ -55,9 +59,7 @@
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-
             $(document).ready(function() {
                $('#login').validate({
                    rules:{

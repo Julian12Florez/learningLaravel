@@ -20,7 +20,7 @@
 //     return $usuario;
 // });
 Route::get('options', function () {
-    return view('Asesores.create');
+    return view('layout.layout');
 })->middleware('auth');
 // Route::get('/', function () {
 //     return view('login');
