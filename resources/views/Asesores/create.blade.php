@@ -27,10 +27,9 @@
             </div>
         </form>
     </div>
-
-
-
 @endsection
-
+@section('script')
+<script src="{{ asset('js/validationAsesores.js') }}"></script>
+@endsection
 
 

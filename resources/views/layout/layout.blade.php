@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+<script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
 <style>
     .bg-grey {
         background-color: #f6f6f6;
@@ -63,18 +65,6 @@
                                 Gestionar Usuarios
                               </a>
                             </li>
-                            {{-- <li class="nav-item">
-                              <a class="nav-link" href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-                                Reports
-                              </a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link" href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                                Integrations
-                              </a>
-                            </li> --}}
                           </ul>
                         </nav>
                         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
@@ -87,43 +77,9 @@
  </div>
     @include('sweetalert::cdn')
     @include('sweetalert::view')
-    <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @yield('script')
-    <script>
-    $(document).ready(function() {
-       $('#formularioAsesores').validate({
-           rules:{
-               codigo:{
-                   required:true,
-                   minlength:3,
-                   number:true
-               },
-               nombre:{
-                   required:true,
-                   minlength:3,
-                   string:true
-               }
-           },
-           messages:{
-            codigo:{
-                   required:"El código debe ser obligatorio.",
-                   minlength:"El minimo de caracteres debe ser 3.",
-                   number:"el código solo debe contener números"
-               },
-            nombre:{
-                   required:"el campo nombre debe ser obligatorio",
-                   minlength:"El minimo de caracteres debe ser 3.",
-                   string:"el nombre solo debe contener numeros"
-               },
-           },
-       });
-    });
-    </script>
-
-
 </body>
 </html>

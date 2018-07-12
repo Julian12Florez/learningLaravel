@@ -1,3 +1,4 @@
+
 @extends('layout.layout')
 
 @section('content')
@@ -33,13 +34,11 @@
                         </tbody>
                 </table>
         </div>
-        @include('Referencias.create')
+    </div>
+     @include('Referencias.create')
 @stop
-@section('script')
 <script>
-        function newReference(){
-            alert();
-             // $('#modalReferencia').modal('show');
-        }
-    </script>
-@endsection
+    function newReference() {
+        $('#modalReferencia').modal('show');
+    }
+</script>
