@@ -37,8 +37,6 @@
     </div>
      @include('Referencias.create')
 @stop
-<script>
-    function newReference() {
-        $('#modalReferencia').modal('show');
-    }
-</script>
+@section('script')
+<script src="{{ asset('js/functionsReferences.js') }}"></script>
+@endsection

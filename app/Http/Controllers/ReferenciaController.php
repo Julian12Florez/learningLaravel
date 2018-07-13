@@ -35,7 +35,10 @@ class ReferenciaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        // if($request->ajax()){
+        // response()
+        // }
     }
 
     /**

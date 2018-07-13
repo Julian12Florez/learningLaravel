@@ -9,20 +9,25 @@
               </button>
             </div>
             <div class="modal-body">
-              <form>
+              <form id="formReferences" method="POST" >
+                  @csrf
                 <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">Código</label>
+                    <div>
+                  <label for="recipient-name" class="col-form">Código</label>
                   <input type="text" class="form-control" id="codigo">
                 </div>
+                </div>
                 <div class="form-group">
-                  <label for="message-text" class="col-form-label">Referencia</label>
-                <input type="text" class="form-control" id="referencia">
+                    <div>
+                    <label for="message-text" class="col-form-control">Referencia</label>
+                  <input type="text" class="form-control" id="referencia">
+                </div>
                 </div>
               </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-black" data-dismiss="modal">cerrar</button>
-              <button type="button" class="btn btn-info">Guardar</button>
+              <button type="button" onclick="addReferences()" class="btn btn-info">Guardar</button>
             </div>
           </div>
         </div>
