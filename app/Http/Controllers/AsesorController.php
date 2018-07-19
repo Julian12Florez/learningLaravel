@@ -102,5 +102,6 @@ class AsesorController extends Controller
        Asesores::where('idvendedor', '=', $id)->delete();
        return redirect('createA')->with([swal()->autoclose(1500)->success('Registro Eliminado', 'Se ha eliminado un registro')]);
 
+
     }
 }

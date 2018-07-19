@@ -2,12 +2,10 @@
 @extends('layout.layout')
 
 @section('content')
-
 <div class="card">
         <div class="card-header">
           Gestionar Referencias
-          <input type="button" style="margin-left: 750px;"  class="btn btn-info" onclick="newReference()" value="Nueva Referencia">
-        {{-- <a href="{{ url('createA/create') }}" style="margin-left: 750px;" onclick="newReference()" class="btn btn-info">Nueva Referencia</a> --}}
+          <input type="button" style="margin-left: 750px;"  class="btn btn-info" onclick="newReference()"  value="Nueva Referencia">
         </div>
         <div class="card-body" width:"50%">
                 <table class="table">
@@ -23,12 +21,14 @@
                             <tr>
                             <td>{{ $value->codigo }}</td>
                             <td>{{ $value->nombre }}</td>
-                            <td><a class="btn btn-outline-info" href="{{ url('createA/'.$value->idvendedor.'/edit') }}">Editar</a></td>
-                            <td><form  action="{{ url('createA/'.$value->idvendedor.'') }}" method="post">
+                            <td><a class="btn btn-outline-info" onclick="edit({{$value->idreferencias}})">Editar</a></td>
+                            <td>
+                            <form method="POST" action={{ url("references/".$value->idreferencias)}}>
                                 @csrf
-                                <input type="hidden"  name="_method" value="delete">
-                                <button type="submit" class="btn btn-outline-danger">Eliminar</button>
-                            </form>
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button class="btn btn-outline-danger" type="submit">Eliminar</button>
+                                </form>
+                            </td>
                         </tr>
                             @endforeach
                         </tbody>

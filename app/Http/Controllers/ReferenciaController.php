@@ -35,10 +35,20 @@ class ReferenciaController extends Controller
      */
     public function store(Request $request)
     {
-        
-        // if($request->ajax()){
-        // response()
-        // }
+        $rules=[
+            'codigo'=>'required',
+            'nombre'=>'required'
+        ];
+        $messages=[
+            'codigo.required' => 'el codigo de la referencia es obligatorio',
+            'nombre.required'=> 'El nombre de la referencia es obligatorio'
+        ];
+        // return $request;
+        if($request->ajax()){
+            $result=Referencias::create($request->all());
+            $array = array('status' => 'trueInsert' );
+            return response()->json($array);
+        }
     }
 
     /**
@@ -47,9 +57,9 @@ class ReferenciaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request,$id)
     {
-        //
+
     }
 
     /**
@@ -60,8 +70,10 @@ class ReferenciaController extends Controller
      */
     public function edit($id)
     {
-        //
-    }
+            $reference=Referencias::findOrFail($id);
+            return $reference;
+            // return "hola";
+     }
 
     /**
      * Update the specified resource in storage.
@@ -72,7 +84,11 @@ class ReferenciaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if($request->ajax()){
+            $reference=Referencias::findOrfail($id)->update($request->all());
+            $array =array('status'=>'trueUpdate' );
+            return response()->json($array);
+        }
     }
 
     /**
@@ -83,6 +99,9 @@ class ReferenciaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $references=Referencias::findOrfail($id);
+        Referencias::where('idreferencias','=' , $id)->delete();
+        return  redirect('references')->with([swal()->autoclose(1500)->success('Registro eliminado','registro eliminado con exito')]);
     }
 }
+
