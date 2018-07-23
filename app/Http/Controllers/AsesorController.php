@@ -46,7 +46,7 @@ class AsesorController extends Controller
             'nombre' => 'required|string|max:45'
           ]);
         Asesores::create($request->all());
-        return redirect('/')->with([swal()->autoclose(1500)->success('Registro Exitoso', 'Se ha agregado un nuevo registro')]);
+        return redirect('createA')->with([swal()->autoclose(1500)->success('Registro Exitoso', 'Se ha agregado un nuevo registro')]);
 
     }
 
@@ -98,8 +98,8 @@ class AsesorController extends Controller
      */
     public function destroy($id)
     {
-       $asesores=Asesores::find($id);
-       Asesores::where('idvendedor', '=', $id)->delete();
+       $asesores=Asesores::find($id)->delete();
+    //    Asesores::where('idvendedor', '=', $id)->delete();
        return redirect('createA')->with([swal()->autoclose(1500)->success('Registro Eliminado', 'Se ha eliminado un registro')]);
 
 

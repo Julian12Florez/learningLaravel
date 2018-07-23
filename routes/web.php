@@ -36,6 +36,6 @@ Route::post('login', 'Auth\LoginController@login');
 //Route for crud of adviser
 Route::resource('createA', 'AsesorController', ['except'=>'show']);
 Route::resource('references', 'ReferenciaController',['except'=>'create']);
-
+Route::resource('usersRoute','UserController',['except'=>'create','show']);
 // Route::put('updateA/{id}', 'AsesorController@update');
 // Route::post('createA','AsesorController@store');
